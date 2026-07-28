@@ -8,7 +8,8 @@ class Solution {
             int l=i+1,r=a.length-1;
             int x=-a[i];
             while(l<r){
-                if(a[l]+a[r]==x){
+                int sum=a[l]+a[r];
+                if(sum==x){
                     ans.add(Arrays.asList(a[i], a[l], a[r]));
                     l++;
                     r--;
