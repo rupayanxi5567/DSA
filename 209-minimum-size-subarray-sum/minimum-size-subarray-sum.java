@@ -29,7 +29,6 @@ class Solution {
                 l++;
             }
         }
-        if(min==Integer.MAX_VALUE)return 0;
-        return min;
+        return min == Integer.MAX_VALUE ? 0 : min;        
     }
 }
