@@ -21,7 +21,7 @@ class Solution {
             }
             h.put(a[r], h.getOrDefault(a[r], 0) + 1);
 
-            if(h.size()!=k && r<n && r==l+k-1){
+            if(h.size()!=k ){
                 s=s-a[l-1]+a[r];
                 l++;
                 r++;
