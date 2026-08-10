@@ -12,7 +12,7 @@ class Solution {
             }
             else if(b[r]>a[l]){
                 l++;
-            }else if(b[r]<=a[l]){
+            }else {
                 r++;
             }
         }
