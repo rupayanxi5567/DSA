@@ -34,7 +34,7 @@ class Solution {
                 //     if(t.next.val==q.val)t.next=t.next.next; 
                 // }else 
                 t.next=q.next;
-                if(t.next==null) return d.next;
+                // if(t.next==null) return d.next;
                 while(t.next!=null && t.next.val==q.val)t.next=t.next.next; 
                 if(t.next==null) return d.next;
                 p=t.next;
