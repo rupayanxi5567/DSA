@@ -12,7 +12,6 @@ class Solution {
     public static ListNode merges(ListNode h1,ListNode h2){
         if(h1==null)return h2;
         if(h2==null)return h1;
-        if(h1==null && h2==null)return h2;
 
         ListNode res=new ListNode(0);
         ListNode t=res;
@@ -35,14 +34,21 @@ class Solution {
         return res.next;
     }
 
+    public static ListNode dAndC(ListNode[] l ,int s,int e){
+        if(s==e) return l[s];
+        if(s>e) return null;
+        int mid=s+(e-s)/2;
+
+        ListNode lm=dAndC(l,s,mid);
+        ListNode rm=dAndC(l,mid+1,e);
+
+        return merges(lm,rm);
+    }
+
 
     public ListNode mergeKLists(ListNode[] l) {
         if(l==null || l.length==0)return null;
         int n=l.length;
-        ListNode r=l[0];
-        for(int i=1;i<n;i++){
-            r=merges(r,l[i]);
-        }
-        return r;
+        return dAndC(l,0,n-1);
     }
 }
