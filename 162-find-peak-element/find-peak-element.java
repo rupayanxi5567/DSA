@@ -6,7 +6,7 @@ class Solution {
         while(l<r){
             int m=l+(r-l)/2;
             if(a[m]<a[m+1]) l=m+1;
-            else r=m;
+            else  r=m;
         }
         return l;
     }
