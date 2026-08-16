@@ -3,8 +3,6 @@ class Solution {
     public static int check(int[] a,int x){
         int s=0,res=0;
         for(int i=0;i<a.length;i++){
-            // s=s+;
-            res=a[i]/x;
             s += (a[i] + x - 1) / x;
         }
         return s;
