@@ -1,24 +1,24 @@
 class Solution {
-    public int evalRPN(String[] s) {
-        Deque<String>stk=new ArrayDeque<>();
-        for(int i=0;i<s.length;i++){
-            if(s[i].equals("+") || s[i].equals("-") || s[i].equals("*") || s[i].equals("/")){
-                int y=Integer.parseInt(stk.pop());
-                int x=Integer.parseInt(stk.pop());
-                if(s[i].equals("+")){
-                    stk.push(String.valueOf(x+y));
-                }else if(s[i].equals("-")){
-                    stk.push(String.valueOf(x-y));
-                }else if(s[i].equals("*")){
-                    stk.push(String.valueOf(x*y));      
-                }else if(s[i].equals("/")){
-                    stk.push(String.valueOf(x/y));
-                }
+    public int evalRPN(String[] str) {
+        Deque<Integer>stk=new ArrayDeque<>();
+        for(String s:str){
+            if(s.equals("+")){
+                stk.push(stk.pop() + stk.pop());
+            }else if(s.equals("*")){
+                stk.push(stk.pop() * stk.pop());
+            }else if(s.equals("-")){
+                int y=stk.pop();
+                int x=stk.pop();
+                stk.push(x - y);
+            }else if(s.equals("/")){
+                int y=stk.pop();
+                int x=stk.pop();
+                stk.push(x / y);
             }else{
-                stk.push(s[i]);
+                stk.push(Integer.parseInt(s));
             }
         }
-        int res=Integer.parseInt(stk.pop());
-        return res;
+
+        return stk.pop();
     }
 }
