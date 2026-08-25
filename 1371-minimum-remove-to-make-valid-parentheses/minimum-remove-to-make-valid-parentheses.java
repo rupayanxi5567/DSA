@@ -14,15 +14,15 @@ class Solution {
                 }
             }
         }
-        Set<Integer>hs=new HashSet<>();
+        boolean[] hs=new boolean[n];
         while(!stk.isEmpty()){
-            hs.add(stk.pop());
+            hs[stk.pop()]=true;
         }
 
         StringBuilder sb=new StringBuilder();
 
         for(int i=0;i<n;i++){
-            if(!hs.contains(i)){
+            if(!hs[i]){
                 sb.append(s.charAt(i));
             }
         }
