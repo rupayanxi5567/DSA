@@ -10,8 +10,7 @@ class Solution {
                 len+=h.get(k);
             }else if(len%2==0 && h.get(k) % 2==1 && h.get(k)>2){
                 len+=h.get(k);
-            }
-            else if(len%2==1 && h.get(k) % 2==1 && h.get(k)>2){
+            }else if(len%2==1 && h.get(k) % 2==1 && h.get(k)>2){
                 len+= h.get(k) - h.get(k)%2;
             }else if(h.get(k)==1 && len%2==0){
                 len+=1;
