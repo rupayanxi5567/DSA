@@ -7,6 +7,6 @@ class Solution {
             }
             h.add(c);
         }
-        return ' ';
+        return 'o';
     }
 }
