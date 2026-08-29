@@ -18,10 +18,6 @@ class Solution {
         StringBuilder sb=new StringBuilder();
 
         for(int x:h.keySet()){
-            if(x==n){
-                sb.append(h.get(x));
-                break;
-            }
             while(n>=x){
                 sb.append(h.get(x));
                 n=n-x;
