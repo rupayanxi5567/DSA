@@ -1,5 +1,6 @@
 class Solution {
     public boolean cp(String a,int st,int end){
+        if(end-st+1==1)return true;
         int l=st;
         int r=end;
         while(l<r){
