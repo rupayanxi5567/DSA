@@ -1,28 +1,25 @@
-import java.util.*;
-
 class Solution {
-    public void restores(int j,String s,List<String>r,StringBuilder sb,int n,List<String>p){
+    public void generates(int j,List<String>r,List<String>p,int n,String s){
         if(p.size()==4){
             if(j==n){
                 r.add(String.join(".",p));
             }
             return;
         }
-        for(int i=j;i<Math.min(n,j+3);i++){
+        for(int i=j;i<n;i++){
             String seg=s.substring(j,i+1);
-            if(seg.length()>1 && seg.startsWith("0"))break;
             if(Integer.parseInt(seg)>255)break;
+            if(seg.length()>=2 && seg.startsWith("0"))break;
             p.add(seg);
-            restores(i+1,s,r,sb,n,p);
+            generates(i+1,r,p,n,s);
             p.removeLast();
         }
     }
     public List<String> restoreIpAddresses(String s) {
-        int n=s.length();
-        StringBuilder sb=new StringBuilder();
         List<String>r=new ArrayList<>();
         List<String>p=new ArrayList<>();
-        restores(0,s,r,sb,n,p);
+        int n=s.length();
+        generates(0,r,p,n,s);
         return r;
     }
 }
