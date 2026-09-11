@@ -1,6 +1,3 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -18,25 +15,12 @@ import java.util.Deque;
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        Deque<TreeNode>q=new ArrayDeque<>();
-        int count=0;
         if(root==null){
-            return count;
+            return 0;
         }
-        q.addLast(root);
-        while (!q.isEmpty()){
-            count++;
-            int sizes=q.size();
-            for(int i=1;i<=sizes;i++){
-                TreeNode cn=q.pollFirst();
-                if(cn.left!=null){
-                    q.addLast(cn.left);
-                }
-                if(cn.right!=null){
-                    q.addLast(cn.right);
-                }
-            }
-        }
-        return count;
+        int l=maxDepth(root.left);
+        int r=maxDepth(root.right);
+
+        return Math.max(l,r)+1;
     }
 }
