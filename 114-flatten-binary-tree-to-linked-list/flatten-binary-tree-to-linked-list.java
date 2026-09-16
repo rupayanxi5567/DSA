@@ -15,9 +15,6 @@
  */
 class Solution {
     public void flatten(TreeNode root) {
-        if(root==null){
-            return;
-        }
         TreeNode cn=root;
         while (cn!=null){
             if(cn.left!=null){
