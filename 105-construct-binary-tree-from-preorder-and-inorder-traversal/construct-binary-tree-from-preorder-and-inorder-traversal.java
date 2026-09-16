@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Map;
 
 /**
  * Definition for a binary tree node.
@@ -16,29 +17,26 @@ import java.util.*;
  * }
  */
 class Solution {
+    Map<Integer,Integer> inMap=new HashMap<>();
     int preIndex=0;
-    Map<Integer,Integer>inMap=new HashMap<>();
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         for(int i=0;i<inorder.length;i++){
-            inMap.put(inorder[i],i);
+            inMap.put(inorder[i],i );
         }
-        return builds(preorder,0,inorder.length-1);
+        return constructs(preorder,0,preorder.length-1);
     }
 
-    private TreeNode builds(int[] preorder, int inS, int inE) {
-        if(inS>inE){
+    private TreeNode constructs(int[] preorder, int starts, int ends) {
+        if(starts>ends){
             return null;
         }
+        int rootNodeVal=preorder[preIndex++];
+        TreeNode rootNode=new TreeNode(rootNodeVal);
 
-        int rootVal=preorder[preIndex++];
-        TreeNode roots=new TreeNode(rootVal);
+        int inorderIndex=inMap.get(rootNodeVal);
 
-        int inIndex=inMap.get(rootVal);
-
-        roots.left=builds(preorder,inS,inIndex-1);
-        roots.right=builds(preorder,inIndex+1,inE);
-
-        return roots;
-
+        rootNode.left=constructs(preorder,starts,inorderIndex-1);
+        rootNode.right=constructs(preorder,inorderIndex+1,ends);
+        return rootNode;
     }
 }
